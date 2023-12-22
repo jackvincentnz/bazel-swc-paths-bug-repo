@@ -62,9 +62,9 @@ bazel_features_deps()
 
 http_archive(
     name = "aspect_rules_swc",
-    sha256 = "8eb9e42ed166f20cacedfdb22d8d5b31156352eac190fc3347db55603745a2d8",
-    strip_prefix = "rules_swc-1.1.0",
-    url = "https://github.com/aspect-build/rules_swc/releases/download/v1.1.0/rules_swc-v1.1.0.tar.gz",
+    sha256 = "97aee3d68ff1b2dfae78ded1610adca1299e6727ef515e91004971fbe696bf2d",
+    strip_prefix = "rules_swc-720174962f7339cea6d30448318f4ac291734378",
+    url = "https://github.com/aspect-build/rules_swc/archive/720174962f7339cea6d30448318f4ac291734378.tar.gz",
 )
 
 ###################
@@ -88,5 +88,5 @@ load("@aspect_rules_swc//swc:repositories.bzl", "LATEST_SWC_VERSION", "swc_regis
 
 swc_register_toolchains(
     name = "swc",
-    swc_version = LATEST_SWC_VERSION,
+    swc_version = "v1.3.100",
 )
