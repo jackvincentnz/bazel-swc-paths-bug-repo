@@ -9,6 +9,7 @@
     "paths": {
       "@myorg/*": ["./src/*"]
     },
-    "outDir": "./dist/tsc"
+    "outDir": "./dist/tsc",
+    "skipLibCheck": true
   }
 }

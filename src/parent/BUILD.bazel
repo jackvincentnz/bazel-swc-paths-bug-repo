@@ -1,0 +1,16 @@
+load("@aspect_rules_swc//swc:defs.bzl", "swc")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@bazel_skylib//lib:partial.bzl", "partial")
+
+ts_project(
+    name = "parent",
+    srcs = ["index.ts"],
+    declaration = True,
+    transpiler = partial.make(
+        swc,
+        swcrc = "//:.swcrc",
+    ),
+    tsconfig = "//:tsconfig",
+    deps = ["//src/parent/child"],
+    visibility = ["//src:__subpackages__"]
+)

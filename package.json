@@ -5,15 +5,17 @@
   "main": "index.js",
   "scripts": {
     "build-tsc": "tsc",
-    "build-swc": "swc src -d dist/swc"
+    "build-swc": "swc src -d dist/swc",
+    "build-bazel": "bazelisk build //..."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@bazel/bazelisk": "^1.19.0",
     "@swc/cli": "^0.1.63",
-    "@swc/core": "^1.3.101",
+    "@swc/core": "1.3.75",
     "tsconfig-to-swcconfig": "^2.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "5.2.2"
   }
 }
