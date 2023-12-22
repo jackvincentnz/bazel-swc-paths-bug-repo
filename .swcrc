@@ -1,0 +1,36 @@
+{
+  "sourceMaps": "inline",
+  "module": {
+    "type": "es6",
+    "strictMode": true,
+    "noInterop": true
+  },
+  "jsc": {
+    "externalHelpers": false,
+    "target": "esnext",
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "decorators": false,
+      "dynamicImport": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": false,
+      "react": {
+        "throwIfNamespace": false,
+        "useBuiltins": false,
+        "pragma": "React.createElement",
+        "pragmaFrag": "React.Fragment",
+        "importSource": "react"
+      }
+    },
+    "keepClassNames": true,
+    "paths": {
+      "@myorg/*": [
+        "./src/*"
+      ]
+    },
+    "baseUrl": "./"
+  }
+}

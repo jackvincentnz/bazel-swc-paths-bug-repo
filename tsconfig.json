@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "baseUrl": ".",
+    // Path Mapping the examples folder as '@myorg/*'.
+    "paths": {
+      "@myorg/*": ["./src/*"]
+    },
+    "outDir": "./dist/tsc"
+  }
+}
