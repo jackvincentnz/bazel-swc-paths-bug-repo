@@ -6,7 +6,8 @@
   "scripts": {
     "build-tsc": "tsc",
     "build-swc": "swc src -d dist/swc",
-    "build-bazel": "bazelisk build //..."
+    "build-bazel": "bazelisk build //...",
+    "build-bazel-swc": "bazelisk build //src/parent:compile"
   },
   "keywords": [],
   "author": "",

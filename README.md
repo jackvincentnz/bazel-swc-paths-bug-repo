@@ -8,12 +8,22 @@ Demonstrates that SWC correctly resolves `jsc.paths` when running outside of Baz
 
 1. Build to `dist/tsc` with `tsc`: `pnpm build-tsc`.
 2. Build to `dist/swc` with `swc`: `pnpm build-pnpm`.
-3. Build to `bazel-bin/` with `Bazel`: `pnpm build-bazel`.
+3. Build to `bazel-bin/` with `Bazel` and `rules_ts`: `pnpm build-bazel`.
 4. Download [swc@v1.3.100](https://github.com/swc-project/swc/releases/tag/v1.3.100), and build in symlinked tmp dir: `./repro.sh`
+5. Build to `bazel-bin/` with `Bazel` and `rules_swc`: `pnpm build-bazel-swc`.
 
 # Issue
 
-When built with Bazel (3), the resolved paths include the sandbox directory:
+When built with Bazel and rules_swc (5), the resolved paths include the sandbox directory:
+
+```
+# bazel-bin/src/parent/out/index.js
+
+import { name } from "../../../../../../../private/var/tmp/_bazel_jack.vincent/04548c3a2779b70cbf6368fff2f77038/sandbox/darwin-sandbox/43/execroot/__main__/bazel-out/darwin-fastbuild/bin/src/parent/child";
+export const parentName = name + "'s parent";
+```
+
+When built with Bazel (3) and rules_ts, the resolved paths include the sandbox directory:
 
 ```
 # bazel-bin/src/parent/index.js
@@ -21,6 +31,8 @@ When built with Bazel (3), the resolved paths include the sandbox directory:
 import { name } from "../../../../../../../private/var/tmp/_bazel_jack.vincent/04548c3a2779b70cbf6368fff2f77038/sandbox/darwin-sandbox/12/execroot/__main__/src/parent/child";
 export const parentName = name + "'s parent";
 ```
+
+---
 
 Outside Bazel, swc resolves the configured path to the relative path:
 

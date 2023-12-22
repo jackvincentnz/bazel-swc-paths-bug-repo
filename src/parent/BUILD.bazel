@@ -14,3 +14,10 @@ ts_project(
     deps = ["//src/parent/child"],
     visibility = ["//src:__subpackages__"]
 )
+
+swc(
+    name = "compile",
+    srcs = ["index.ts"],
+    swcrc = "//:.swcrc",
+    out_dir = "out",
+)
